@@ -1,9 +1,9 @@
 # Introduction to React Assignment
 
 
-# 1. Create a Simple React App (Hello World)
+## 1. Create a Simple React App (Hello World)
 
-## Goal
+### Goal
 
 Create a React application that displays:
 
@@ -11,7 +11,7 @@ Create a React application that displays:
 Hello, World!
 ```
 
-## Solution Code in this file (`App.jsx`)
+### Solution Code in this file (`App.jsx`)
 
 ```jsx
 function App() {
@@ -23,9 +23,9 @@ export default App;
 
 
 
-# 2. How to Set Up a React Project
+## 2. How to Set Up a React Project
 
-## Step 1 — Create Project
+### Step 1 — Create Project
 
 ```bash
 npm create vite@latest 
@@ -39,38 +39,38 @@ React
 JavaScript
 ```
 
-## Step 2 — Install Dependencies
+### Step 2 — Install Dependencies
 
 ```bash
 cd Intro-react-app
 npm install
 ```
 
-## Step 3 — Run Project
+### Step 3 — Run Project
 
 ```bash
 npm run dev
 ```
 
-## How Rendering Works
+### How Rendering Works
 
 In `main.jsx`, React renders the `App` component into the root DOM element.
 At the end `index.html` is render on the browser
 
 
-# 3. Functional vs Class Components
+## 3. Functional vs Class Components
 
-## Functional Component
+### Functional Component
 
 Functional component code is in file `components/FunctionalComponent.jsx`
 
 
-## Class Component
+### Class Component
 
 Class component code is in file `components/ClassComponent.jsx`
 
 
-## Render Both in `App.jsx`
+### Render Both in `App.jsx`
 
 ```jsx
 import FunctionalComponent from "./components/FunctionalComponent";
@@ -90,7 +90,7 @@ export default App;
 
 
 
-# 📂 Project Structure
+## 📂 Project Structure
 
 ```
 src/
