@@ -1,5 +1,4 @@
 import type { GetServerSideProps, NextPage } from "next";
-import "../styles/globals.css";
 
 interface Post {
   userId: number;
@@ -29,19 +28,21 @@ const Posts: NextPage<PostsPageProps> = ({ posts }) => {
   return (
     <div>
       <h1 className="text-3xl font-bold mb-8 text-gray-800">
-        Posts (Page Router + TypeScript)
+        Latest Posts
       </h1>
 
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="grid gap-6 md:grid-cols-2">
         {posts.map((post) => (
           <div
             key={post.id}
-            className="bg-white shadow-lg rounded-xl p-6 hover:shadow-2xl transition"
+            className="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl transition duration-300"
           >
-            <h3 className="text-xl font-semibold text-indigo-600 mb-3">
+            <h2 className="text-xl font-semibold text-indigo-600 mb-3 capitalize">
               {post.title}
-            </h3>
-            <p className="text-gray-600">{post.body}</p>
+            </h2>
+            <p className="text-gray-600 leading-relaxed">
+              {post.body}
+            </p>
           </div>
         ))}
       </div>
