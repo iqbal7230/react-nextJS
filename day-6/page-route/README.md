@@ -70,7 +70,7 @@ https://jsonplaceholder.typicode.com/posts
 
 ---
 
-## 4️⃣ Incremental Static Regeneration (ISR)
+## 4 Incremental Static Regeneration (ISR)
 
 Implemented inside `getStaticProps`:
 
@@ -87,7 +87,7 @@ ISR allows updating static pages without rebuilding the entire application.
 
 ---
 
-# 📊 Comparison Table
+# Comparison Table
 
 | Method | Runs On | SEO | Best Use Case |
 |--------|---------|------|--------------|

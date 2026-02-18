@@ -57,7 +57,7 @@ Server Components are the default behavior in the App Router.
 
 ## 3 ISR (Incremental Static Regeneration)
 
-📄 `app/isr-post/[id]/page.tsx`
+ `app/isr-post/[id]/page.tsx`
 
 Uses:
 
@@ -78,7 +78,7 @@ Uses:
 
 ---
 
-# 📊 Rendering Comparison
+#  Rendering Comparison
 
 | Feature | Client Component | Server Component | ISR |
 |----------|------------------|------------------|------|
