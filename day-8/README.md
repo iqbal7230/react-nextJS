@@ -1,36 +1,20 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# API-Routes Assignment
 
-## Getting Started
+## Features
 
-First, run the development server:
+- **Static Data Source:** Contains a mocked data dataset with 5 teachers and 30 students (`data/data.ts`).
+- **API Routes:**
+  - `GET /teacher`: Fetches the entire list of teachers.
+  - `GET /student`: Fetches the entire list of students.
+- **Interactive UI:**
+  - **Home Page (`/`)**: Allows users to toggle between viewing the list of teachers and the list of students using Client Components and state management.
+  - **Combined View (`/student-teacher`)**:  Fetching both students and teachers on the server and rendering a combined view where each student is displayed along with their assigned teacher's details.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Assignment Question
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Create a JSON/data file with 5 records of teachers and 30 records of students.
+- Create an API endpoint to fetch the list of all the teachers.
+- Create an API endpoint to fetch the list of all the students.
+- Create a view to fetch the list of students who are under a specific teacher (Implemented via UI on `/student-teacher`).
+- Optional: Create an endpoint to add a teacher to the list.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

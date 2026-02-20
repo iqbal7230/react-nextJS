@@ -1,55 +1,63 @@
 "use client"
 
+import Card from "@/components/card";
+import StudentCard from "@/components/studentCard";
+import Link from "next/link";
+import { useState } from "react";
+
+export interface Teacher {
+  id: number;
+  name: string;
+  subject: string;
+  email: string;
+  experience: number;
+}
+export interface Student {
+  id: number;
+  name: string;
+  age: number;
+  grade: string;
+  teacherId: number;
+}
+
 export default function Home() {
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    const username = formData.get("username") as string;
-    const email = formData.get("email") as string;
-    const password = formData.get("password") as string;
+  const [teacher, setTeacher] = useState<Teacher[]>([]);
+  const [student, setStudent] = useState<Student[]>([]);
+  const [view, setView] = useState<"teacher" | "student">("teacher");
 
-    const action = (document.activeElement as HTMLButtonElement).value;
-
-    if (action === "add") {
-      const data = await fetch("/blog", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ username, email, password }),
-      });
-      const res = await data.json();
-      console.log("Add response:", res);
-      alert(res.message);
-    } else if (action === "delete") {
-      const data = await fetch("/blog", {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ username }),
-      });
-      const res = await data.json();
-      console.log("Delete response:", res);
-      alert(res.message);
-    }
-
-    e.currentTarget.reset();
-  };
+  async function fetchTeachers(){
+    const data = await fetch("/teacher");
+    const res = await data.json();
+    setView("teacher");
+    setTeacher(res);
+  }
+  async function fetchStudents(){
+    const data = await fetch("/student");
+    const res = await data.json();
+    setView("student");
+    setStudent(res);
+  }
 
   return (
-    <div style={{ padding: "2rem" }}>
-      <h1>User Management</h1>
-      <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "10px", maxWidth: "300px" }}>
-        <input type="text" name="username" placeholder="Username" required />
-        <input type="email" name="email" placeholder="Email" />
-        <input type="password" name="password" placeholder="Password" />
-        
-        <div style={{ display: "flex", gap: "10px", marginTop: "10px" }}>
-          <button type="submit" value="add" style={{ padding: "8px", flex: 1, cursor: "pointer" }}>Add User</button>
-          <button type="submit" value="delete" style={{ padding: "8px", flex: 1, backgroundColor: "#ff4d4d", color: "white", border: "none", cursor: "pointer" }}>Delete User</button>
-        </div>
-      </form>
+    <div>
+     
+      <button onClick={fetchTeachers} className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg m-4">Fetch Teachers</button>
+      <button onClick={fetchStudents} className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg m-4">Fetch Students</button>
+      <Link href="/student-teacher"><button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg m-4">Get student with teacher</button></Link>
+      <div className="flex flex-wrap gap-4"> 
+      {
+        view === "teacher" && 
+        teacher.map((teacher) => (  
+          <Card key={teacher.id} res={teacher} />  
+        ))
+      }
+      {
+        view === "student" &&
+        student.map((student) => (
+          <StudentCard key={student.id} student={student} />
+        ))
+      }
+      </div>
     </div>
   );
 }
