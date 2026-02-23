@@ -1,7 +1,6 @@
 
-import StudentCard from "@/components/studentCard";
 import { Student, Teacher} from "../page";
-import Card from "@/components/card";
+
 
 export async function fetchStudents(){
     const data = await fetch("http://localhost:3000/student");
