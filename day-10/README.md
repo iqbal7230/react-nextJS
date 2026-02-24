@@ -1,36 +1,18 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Next.js Optimization and Performance (Day 10)
 
-## Getting Started
+- **Fetch Memoization Logging:** Enabled logging to observe `HIT`, `MISS`, or `SKIP` caching behaviors in the terminal.
+- **Server Actions & Cache Purging:** Implemented `revalidateTag` within a Server Action to purge cached data on demand.
+- **Dynamic Imports:** Used `next/dynamic` to lazy-load a Popup component, reducing the initial client bundle size.
+- **Image Optimization:** Utilized `next/image` with remote patterns to load and display images from a dummy API (`picsum.photos`).
+- **Custom Font Optimization:** Integrated Google Fonts using `next/font/google` (`Roboto`) for optimized font loading.
+- **Bundle Analysis:** Configured `@next/bundle-analyzer` to inspect and understand the application's bundle size.
 
-First, run the development server:
+### Bundle Analyzer
+
+To review the bundle size of the project:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run analyze
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This will generate interactive HTML reports detailing the client, edge, and node.js chunks in the `.next/analyze` directory.
